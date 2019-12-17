@@ -122,8 +122,14 @@ public class SocketClient extends AndroidNonvisibleComponent {
                         msg.obj = "开始连接";
                         myHandler.sendMessage(msg);
 			    
+			try {   
 			socket.connect(new InetSocketAddress(IP, DK), 1000);
-			/*ou = */socket.getOutputStream();
+			ou = socket.getOutputStream();
+			 } catch (SocketTimeoutException aa) {
+                        msg = myHandler.obtainMessage();
+                        msg.obj = "连接错误";
+                        myHandler.sendMessage(msg);
+                        socket = null;}
 
 			msg = myHandler.obtainMessage();
 			msg.obj = "连接成功";
