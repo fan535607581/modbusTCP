@@ -1,4 +1,4 @@
-package ModbusTCP;
+package cn.roger.socket;
 
 import com.google.appinventor.components.annotations.*;
 import com.google.appinventor.components.common.ComponentCategory;
@@ -121,18 +121,13 @@ public class SocketClient extends AndroidNonvisibleComponent {
                         msg = myHandler.obtainMessage();
                         msg.obj = "开始连接";
                         myHandler.sendMessage(msg);
-			try {    
-				socket.connect(new InetSocketAddress(IP, DK), 1000);
-				ou = socket.getOutputStream();
+			    
+			socket.connect(new InetSocketAddress(IP, DK), 1000);
+			//ou = socket.getOutputStream();
 
-				msg = myHandler.obtainMessage();
-				msg.obj = "连接成功";
-				myHandler.sendMessage(msg);  
-			} catch (SocketTimeoutException aa) {
-                        msg = myHandler.obtainMessage();
-                        msg.obj = "连接超时";
-                        myHandler.sendMessage(msg);
-                        socket = null;
+			msg = myHandler.obtainMessage();
+			msg.obj = "连接成功";
+			myHandler.sendMessage(msg);  
 			   
                     } catch (SocketTimeoutException aa) {
                         msg = myHandler.obtainMessage();
