@@ -1,4 +1,4 @@
-package cn.roger.socket;
+package ModbusTCP;
 
 import com.google.appinventor.components.annotations.*;
 import com.google.appinventor.components.common.ComponentCategory;
@@ -42,7 +42,7 @@ import java.net.*;
 
 
 @DesignerComponent(version = 1,
-    description = "made in fanhaojie",
+    description = "made in fan hao jie",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
     iconName = "images/extension.png")
@@ -121,13 +121,18 @@ public class SocketClient extends AndroidNonvisibleComponent {
                         msg = myHandler.obtainMessage();
                         msg.obj = "开始连接";
                         myHandler.sendMessage(msg);
-			    
-			socket.connect(new InetSocketAddress(IP, DK), 1000);
-			ou = socket.getOutputStream();
-			    
+			try {    
+				socket.connect(new InetSocketAddress(IP, DK), 1000);
+				ou = socket.getOutputStream();
+
+				msg = myHandler.obtainMessage();
+				msg.obj = "连接成功";
+				myHandler.sendMessage(msg);  
+			} catch (SocketTimeoutException aa) {
                         msg = myHandler.obtainMessage();
-                        msg.obj = "连接成功";
-                        myHandler.sendMessage(msg);  
+                        msg.obj = "连接超时";
+                        myHandler.sendMessage(msg);
+                        socket = null;
 			   
                     } catch (SocketTimeoutException aa) {
                         msg = myHandler.obtainMessage();
