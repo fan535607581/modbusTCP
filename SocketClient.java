@@ -123,7 +123,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
                         myHandler.sendMessage(msg);
 			    
 			socket.connect(new InetSocketAddress(IP, DK), 1000);
-			ou = socket.getOutputStream();
+			//ou = socket.getOutputStream();
 
 			msg = myHandler.obtainMessage();
 			msg.obj = "连接成功";
