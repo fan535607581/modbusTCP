@@ -71,7 +71,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
         }else{  GetMessage("连接未创建！"); }
     }
     @SimpleFunction(description = "start")
-    public void sendMessage(String s , int ms)
+    public void sendMessage(String s)
     {  
 	 int k = s.length()/3;
         if(socket != null){
@@ -152,7 +152,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
                 case SENDMESSAGE:
                     try {
 			byte[] bb = new byte[255]; 
-			for(int j = 0; j<js+1 ;j++){bb[j+1] = (byte)((i[j] >> 0));}
+			for(int j = 0; j<js+1 ;j++){bb[j+1] = (byte)i[j];}
 			ou.write(bb , 1 , js);    
                         msg = myHandler.obtainMessage();
                         msg.obj = "发送完毕";
