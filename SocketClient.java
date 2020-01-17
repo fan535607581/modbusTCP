@@ -152,12 +152,12 @@ public class SocketClient extends AndroidNonvisibleComponent {
                 case SENDMESSAGE:
                     try {
 			byte[] bb = new byte[255]; 
-			i[1] = 256;
+			i[1] = 1;
 			//for(int j = 0; j<js+1 ;j++){bb[j] = (byte)((i[j] >> 16));}
-			bb[1] = (byte)((i[1] >> 24));
+			//bb[1] = (byte)((i[1] >> 24));
 			bb[2] = (byte)((i[1] >> 16)); 
 			   bb[3] = (byte)((i[1] >> 8)); 
-			    bb[4] = (byte)((i[1] >> 0)); 
+			   // bb[4] = (byte)((i[1] >> 0)); 
 			ou.write(bb , 1 , js);    
                         msg = myHandler.obtainMessage();
                         msg.obj = "发送完毕";
