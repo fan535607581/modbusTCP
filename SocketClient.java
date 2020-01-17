@@ -71,7 +71,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
         }else{  GetMessage("连接未创建！"); }
     }
     @SimpleFunction(description = "start")
-    public void sendMessage(String s)
+    public void sendMessage(String s , int ms)
     {  
 	 int k = s.length()/3;
         if(socket != null){
@@ -80,6 +80,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
 	    {
 		   mt.setText(Integer.parseInt(s.substring(j*3,(j+1)*3)), j , k );
 	    }
+	    mt.setMS(ms);
             mt.start();//启动发送
         }else{ GetMessage("连接未创建！");}
     }
@@ -101,6 +102,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
  
         public String IP;
         public int DK;
+	public int MS;   
         public int js;
         public int[]i=new int[1024];
         Message message_2;
@@ -110,6 +112,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
         public void setText(int s , int b , int k){ i[b] = s;  js = k; }
         public void setIP(String ip){ IP = ip; }
         public void setDK(int port){ DK = port;}
+	public void setMS(int ms){ MS = ms;}   
 	    
         @Override
         public void run() 
@@ -148,7 +151,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
                 break;
                 case SENDMESSAGE:
                     try {
-			ou.write(0);
+			if(MS == 1)ou.write(0);
                         for(int j = 0; j<js ;j++)ou.write(i[j]);
                         msg = myHandler.obtainMessage();
                         msg.obj = "发送完毕";
