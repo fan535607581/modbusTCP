@@ -109,7 +109,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
         Message msg;
         public int flag;
         public MyThread(int flag) { this.flag = flag; }
-        public void setText(int s , int b , int k){ i[b] = s;  js = k; }
+        public void setText(byte s , int b , int k){ i[b] = s;  js = k; }
         public void setIP(String ip){ IP = ip; }
         public void setDK(int port){ DK = port;}
 	public void setMS(int ms){ MS = ms;}   
