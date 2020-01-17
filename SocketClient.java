@@ -78,8 +78,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
             mt = new MyThread(SENDMESSAGE);
 	    for(int j = 0; j<k ;j++)
 	    {
-		   //mt.setText(Integer.parseInt(s.substring(j*3,(j+1)*3)), j , k );
-		    mt.setText(1, j , k );
+		   mt.setText(Integer.parseInt(s.substring(j*3,(j+1)*3)), j , k );	   
 	    }
 	    mt.setMS(ms);
             mt.start();//启动发送
@@ -105,12 +104,12 @@ public class SocketClient extends AndroidNonvisibleComponent {
         public int DK;
 	public int MS;   
         public int js;
-        public byte[]i=new byte[1024];
+        public int[]i=new byte[1024];
         Message message_2;
         Message msg;
         public int flag;
         public MyThread(int flag) { this.flag = flag; }
-        public void setText(byte s , int b , int k){ i[b] = s;  js = k; }
+        public void setText(int s , int b , int k){ i[b] = s;  js = k; }
         public void setIP(String ip){ IP = ip; }
         public void setDK(int port){ DK = port;}
 	public void setMS(int ms){ MS = ms;}   
