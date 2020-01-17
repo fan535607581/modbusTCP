@@ -151,9 +151,12 @@ public class SocketClient extends AndroidNonvisibleComponent {
                 break;
                 case SENDMESSAGE:
                     try {
+			 byte[] b = new byte[255];
+			    
 			if(MS == 1)ou.write(0);
                         //for(int j = 0; j<js ;j++)ou.write(i[j]);
-			ou.write(i , 1 , js);    
+			 
+			ou.write(b , 1 , js);    
                         msg = myHandler.obtainMessage();
                         msg.obj = "发送完毕";
                         myHandler.sendMessage(msg);
