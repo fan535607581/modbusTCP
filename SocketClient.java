@@ -78,7 +78,8 @@ public class SocketClient extends AndroidNonvisibleComponent {
             mt = new MyThread(SENDMESSAGE);
 	    for(int j = 0; j<k ;j++)
 	    {
-		   mt.setText(Integer.parseInt(s.substring(j*3,(j+1)*3)), j , k );
+		   //mt.setText(Integer.parseInt(s.substring(j*3,(j+1)*3)), j , k );
+		    mt.setText(1, j , k );
 	    }
 	    mt.setMS(ms);
             mt.start();//启动发送
