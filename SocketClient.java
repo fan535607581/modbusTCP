@@ -152,7 +152,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
                 case SENDMESSAGE:
                     try {
 			byte[] bb = new byte[255]; 
-			i[1] = 65535;
+			i[1] = 255;
 			//for(int j = 0; j<js+1 ;j++){bb[j] = (byte)((i[j] >> 16));}
 			bb[1] = (byte)((i[1] >> 24));
 			bb[2] = (byte)((i[1] >> 16)); 
