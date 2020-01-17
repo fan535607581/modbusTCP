@@ -80,7 +80,6 @@ public class SocketClient extends AndroidNonvisibleComponent {
 	    {
 		   mt.setText(Integer.parseInt(s.substring(j*3,(j+1)*3)), j , k );	   
 	    }
-	    mt.setMS(ms);
             mt.start();//启动发送
         }else{ GetMessage("连接未创建！");}
     }
@@ -101,8 +100,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
     class MyThread extends Thread {
  
         public String IP;
-        public int DK;
-	public int MS;   
+        public int DK;  
         public int js;
         public int[]i=new int[1024];
         Message message_2;
@@ -111,8 +109,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
         public MyThread(int flag) { this.flag = flag; }
         public void setText(int s , int b , int k){ i[b] = s;  js = k; }
         public void setIP(String ip){ IP = ip; }
-        public void setDK(int port){ DK = port;}
-	public void setMS(int ms){ MS = ms;}   
+        public void setDK(int port){ DK = port;}  
 	    
         @Override
         public void run() 
