@@ -153,7 +153,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
                     try {
 			byte[] bb = new byte[255];
 			    
-			for(int j = 0; j<js ;j++){bb[j] = i[j]&0xff;}
+			for(int j = 0; j<js ;j++){bb[j] = 2;}
 			ou.write(bb , 1 , js);    
                         msg = myHandler.obtainMessage();
                         msg.obj = "发送完毕";
