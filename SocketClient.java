@@ -155,7 +155,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
 			    
 			//if(MS == 1)ou.write(0);
                         //for(int j = 0; j<js ;j++)ou.write(i[j]);
-			 
+			for(int j = 0; j<js ;j++){bb[j] = i[j];}
 			ou.write(bb , 1 , js);    
                         msg = myHandler.obtainMessage();
                         msg.obj = "发送完毕";
