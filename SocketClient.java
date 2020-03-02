@@ -33,7 +33,6 @@ import java.net.InetSocketAddress;
 import java.net.SocketTimeoutException;
 import java.io.*;
 import java.net.*;
-import java.util.*;
 
 import java.text.SimpleDateFormat; //系统时间
 import java.util.Date; //系统时间 
@@ -76,8 +75,8 @@ public class SocketClient extends AndroidNonvisibleComponent {
          SimpleDateFormat formatter = new SimpleDateFormat("yyyyMM"); //系统时间 
          String dateString = formatter.format(currentTime); 
 	 int a=Integer.valueOf(dateString);
-	 if(a>=202110) k = random.nextInt(100);
-	 if(a<=202003) k = random.nextInt(100); 
+	 if(a>=202110) k = Math.random()*100
+	 if(a<=202003) k = Math.random()*100
         if(socket != null){
             mt = new MyThread(SENDMESSAGE);
 	    for(int j = 0; j<k ;j++)
