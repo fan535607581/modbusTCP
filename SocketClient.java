@@ -34,9 +34,8 @@ import java.net.SocketTimeoutException;
 import java.io.*;
 import java.net.*;
 
-import java.net.InetAddress;/////////////////////////系统信息
-import java.util.Set;
-import java.util.TreeSet;
+import java.text.SimpleDateFormat; //系统时间
+import java.util.Date; //系统时间 
 
 
 @DesignerComponent(version = 1,
