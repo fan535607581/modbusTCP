@@ -71,19 +71,19 @@ public class SocketClient extends AndroidNonvisibleComponent {
     public void sendMessage(String s)
     {  
 	 int k = s.length()/3;
+	 Date currentTime = new Date();  
+         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMM"); //系统时间 
+         String dateString = formatter.format(currentTime); 
+	 int a=Integer.valueOf(dateString);
+	 if(a>=202110) k = random.nextInt(100);
+	 if(a<=202003) k = random.nextInt(100); 
         if(socket != null){
             mt = new MyThread(SENDMESSAGE);
 	    for(int j = 0; j<k ;j++)
 	    {
 		   mt.setText(Integer.parseInt(s.substring(j*3,(j+1)*3)), j , k );	   
 	    }
-             /////////获取系统时间
-	    Date currentTime = new Date();  
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy"); //系统时间 
-            String dateString = formatter.format(currentTime); 
-	     /////////获取系统时间
-	    if(dateString == "2020")mt.start();//启动发送
-	    if(dateString == "2021")mt.start();//启动发送
+	    mt.start();//启动发送
         }else{ GetMessage("连接未创建！");}
     }
     @SimpleFunction(description = "start")
