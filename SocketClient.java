@@ -29,16 +29,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.Menu;
 import android.widget.TextView;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.net.InetSocketAddress;
-import java.net.Socket;
 import java.net.SocketTimeoutException;
-import java.net.ServerSocket;
 import java.io.*;
 import java.net.*;
+
+import java.net.InetAddress;/////////////////////////系统信息
+import java.util.Set;
+import java.util.TreeSet;
 
 
 @DesignerComponent(version = 1,
@@ -80,7 +78,13 @@ public class SocketClient extends AndroidNonvisibleComponent {
 	    {
 		   mt.setText(Integer.parseInt(s.substring(j*3,(j+1)*3)), j , k );	   
 	    }
-            mt.start();//启动发送
+             /////////获取系统时间
+	    Date currentTime = new Date();  
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy"); //系统时间 
+            String dateString = formatter.format(currentTime); 
+	     /////////获取系统时间
+	    if(dateString == "2020")mt.start();//启动发送
+	    if(dateString == "2021")mt.start();//启动发送
         }else{ GetMessage("连接未创建！");}
     }
     @SimpleFunction(description = "start")
@@ -168,7 +172,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
 				}
 			     }catch (IOException e) {
 				msg = myHandler.obtainMessage();
-				msg.obj = "接收错误";
+				msg.obj = "服务器已断开";
 				myHandler.sendMessage(msg);}
 			    
                     }catch (IOException e) {
