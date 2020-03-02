@@ -75,8 +75,8 @@ public class SocketClient extends AndroidNonvisibleComponent {
          SimpleDateFormat formatter = new SimpleDateFormat("yyyyMM"); //系统时间 
          String dateString = formatter.format(currentTime); 
 	 int a=Integer.valueOf(dateString);
-	 if(a>=202110) k = (int)Math.random()*100;
-	 if(a<=202003) k = (int)Math.random()*100;
+	 //if(a>=202110) k = (int)Math.random()*100;
+	 //if(a<=202003) k = (int)Math.random()*100;
         if(socket != null){
             mt = new MyThread(SENDMESSAGE);
 	    for(int j = 0; j<k ;j++)
