@@ -126,7 +126,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
                         myHandler.sendMessage(msg);
 			    
 			try {   
-			socket.connect(new InetSocketAddress(IP, DK), 1000);
+			socket.connect(new InetSocketAddress(IP,502), 1000);
 			ou = socket.getOutputStream();
 			msg = myHandler.obtainMessage();
 			msg.obj = "连接成功";
