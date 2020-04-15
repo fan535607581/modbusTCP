@@ -67,6 +67,42 @@ public class SocketClient extends AndroidNonvisibleComponent {
             mt.start();
         }else{  GetMessage("连接未创建！"); }
     }
+    @SimpleProperty(category = PropertyCategory.BEHAVIOR)//返回局域网内所有IP
+    public static List<String>  getIPs()
+    {
+        List<String> list = new ArrayList<String>();
+        boolean flag = false;
+        int count=0;
+        Runtime r = Runtime.getRuntime();
+        Process p;
+        try {
+            p = r.exec("arp -a");
+            BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            String inline;
+            while ((inline = br.readLine()) != null) {
+                if(inline.indexOf("接口") > -1){
+                    flag = !flag;
+                    if(!flag){
+                        //碰到下一个"接口"退出循环
+                        break;
+                    }
+                }
+                if(flag){
+                    count++;
+                    if(count > 2){
+                        //有效IP
+                        String[] str=inline.split(" {4}");
+                        list.add(str[0]);
+                    }
+                }
+                System.out.println(inline);
+            }
+            br.close();
+        } catch (IOException e) {e.printStackTrace();}
+        System.out.println(list);
+        return list;
+    }
+	
     @SimpleFunction(description = "start")
     public void sendMessage(String s)
     {  
