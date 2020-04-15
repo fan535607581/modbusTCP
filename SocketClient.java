@@ -89,10 +89,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
                 }
                 if(flag){
                     count++;
-                    if(count > 2){
-                        String str=inline.split(" {4}");
-                        list.add(str[0]);
-                    }
+                    if(count > 2){ String str=inline.split(" {4}"); }
                 }
             }
             br.close();
