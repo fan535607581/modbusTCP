@@ -85,13 +85,12 @@ public class SocketClient extends AndroidNonvisibleComponent {
                     flag = !flag;
                     if(!flag){
                         //碰到下一个"接口"退出循环 
-			break;
-                    }
+			break;}
                 }
                 if(flag){
                     count++;
                     if(count > 2){
-                        String[] str=inline.split(" {4}");
+                        String str=inline.split(" {4}");
                         list.add(str[0]);
                     }
                 }
