@@ -71,7 +71,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
     @SimpleProperty(category = PropertyCategory.BEHAVIOR)//返回局域网内所有IP
     public static String  getIPs()
     {
-        List<String> list = new ArrayList<String>();
+        String list = "192.168.100.99";
         boolean flag = false;
         int count=0;
         Runtime r = Runtime.getRuntime();
