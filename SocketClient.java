@@ -158,6 +158,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
 			for(int j = 0; j<js+1 ;j++){bb[j+1] = (byte)i[j];}
 			//添加固定命令长度及地址范围
 			if(bb[8] == 16) bb[6]=47;bb[12]=19;bb[13]=38;js=53;
+			if(bb[8] == 3) bb[12]=40;
 			//添加固定命令长度及地址范围
 			ou.write(bb , 1 , js); 
 			ou.flush();
