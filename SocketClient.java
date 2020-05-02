@@ -193,11 +193,13 @@ public class SocketClient extends AndroidNonvisibleComponent {
 				//	message_2.obj = b[j]&0xff;
 				//	myHandler.sendMessage(message_2);
 				//}
-				permute(b);
-				for(List<Integer> a:permute(b))
-				{
-					for(int c:a){ System.out.println(c); }
-				}
+			     {
+				byte[] e = new byte[b[5]+6];
+				message_2 = myHandler.obtainMessage();
+				message_2.obj = e;
+				myHandler.sendMessage(message_2);
+			     }
+			     }
 				
 			     }catch (IOException e) {
 				msg = myHandler.obtainMessage();
