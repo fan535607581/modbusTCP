@@ -99,10 +99,16 @@ public class SocketClient extends AndroidNonvisibleComponent {
         }else{ GetMessage("连接创建失败！"); }
     }
 
-    @SimpleEvent
+    /*@SimpleEvent
     public void GetMessage(String s){
         EventDispatcher.dispatchEvent(this, "GetMessage", s);
+    }*/
+    @SimpleEvent
+    public void GetMessage(Object s )
+    {
+        EventDispatcher.dispatchEvent(this, "GetMessage", s);
     }
+	
     class MyThread extends Thread {
  
         public String IP;
@@ -181,12 +187,18 @@ public class SocketClient extends AndroidNonvisibleComponent {
 			     int msy = 0;  byte[] b = new byte[255];	int k = 0;
 			     msy = socket.getInputStream().read(b);
 			     if( msy >= 0)	
-				for(int j = 0; j<(b[5]+6) ; j++)
+				//for(int j = 0; j<(b[5]+6) ; j++)
+				//{
+				//	message_2 = myHandler.obtainMessage();
+				//	message_2.obj = b[j]&0xff;
+				//	myHandler.sendMessage(message_2);
+				//}
+				permute(b);
+				for(List<Integer> a:permute(b))
 				{
-					message_2 = myHandler.obtainMessage();
-					message_2.obj = b[j]&0xff;
-					myHandler.sendMessage(message_2);
+					for(int c:a){ System.out.println(c); }
 				}
+				
 			     }catch (IOException e) {
 				msg = myHandler.obtainMessage();
 				msg.obj = "服务器已断开";
