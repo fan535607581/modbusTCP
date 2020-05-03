@@ -104,7 +104,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
         EventDispatcher.dispatchEvent(this, "GetMessage", s);
     }*/
     @SimpleEvent
-    public void GetMessage(Object s )
+    public void GetMessage(String s )
     {
         EventDispatcher.dispatchEvent(this, "GetMessage", s);
     }
