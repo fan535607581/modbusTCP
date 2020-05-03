@@ -39,7 +39,7 @@ import java.util.Date; //系统时间
 
 
 @DesignerComponent(version = 1,
-    description = "made in fan hao jie",
+    description = " ",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
     iconName = "images/extension.png")
