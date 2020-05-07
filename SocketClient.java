@@ -187,7 +187,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
 			     int msy = 0;  byte[] b = new byte[255];	int k = 0; 
 				
 			     int mm =0;
-			     String SC;//回复命令
+			     String SC = "";//回复命令
 			     String str1 = "0123456789ABCDEF";//十六进制字符串表
 				
 			     msy = socket.getInputStream().read(b);
