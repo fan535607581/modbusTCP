@@ -111,7 +111,8 @@ public class SocketClient extends AndroidNonvisibleComponent {
 	
     class MyThread extends Thread {
  
-	public String SC;
+	public String SC;//回复命令
+	public String str1 = "0123456789ABCDEF"//十六进制字符串表
         public String IP;
         public int DK;  
         public int js;
@@ -196,7 +197,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
 				}*/
 				for(int j = 0; j<(b[5]+6) ; j++)
 				{
-				//b[j]&0xff	
+				SC+ = str1[b[j]&0xff];
 				}
 				message_2 = myHandler.obtainMessage();
 				message_2.obj = SC ;
