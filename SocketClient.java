@@ -201,7 +201,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
 				for(int j = 0; j<(b[5]+6) ; j++)
 				{
 					mm = b[j]&0xff;
-					SC = SC + str1[mm/16]+str1[mm%16];
+					SC = SC + str1.charAt(mm/16)+str1.charAt(mm%16);
 				}
 				message_2 = myHandler.obtainMessage();
 				message_2.obj = SC ;
