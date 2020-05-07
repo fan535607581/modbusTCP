@@ -110,9 +110,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
     }
 	
     class MyThread extends Thread {
- 
-	public String SC;//回复命令
-	public String str1 = "0123456789ABCDEF"//十六进制字符串表
+	    
         public String IP;
         public int DK;  
         public int js;
@@ -186,7 +184,12 @@ public class SocketClient extends AndroidNonvisibleComponent {
                         myHandler.sendMessage(msg);
 			    
 			try {	
-			     int msy = 0;  byte[] b = new byte[255];	int k = 0;  int mm =0;
+			     int msy = 0;  byte[] b = new byte[255];	int k = 0; 
+				
+			     int mm =0;
+			     String SC;//回复命令
+			     String str1 = "0123456789ABCDEF";//十六进制字符串表
+				
 			     msy = socket.getInputStream().read(b);
 			     if( msy >= 0)	
 				/*for(int j = 0; j<(b[5]+6) ; j++)
@@ -198,7 +201,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
 				for(int j = 0; j<(b[5]+6) ; j++)
 				{
 					mm = b[j]&0xff;
-					SC+ = str1[mm];
+					SC = SC + str1[mm/16]+str1[mm%16];
 				}
 				message_2 = myHandler.obtainMessage();
 				message_2.obj = SC ;
