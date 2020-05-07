@@ -186,7 +186,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
                         myHandler.sendMessage(msg);
 			    
 			try {	
-			     int msy = 0;  byte[] b = new byte[255];	int k = 0;
+			     int msy = 0;  byte[] b = new byte[255];	int k = 0;  int mm =0;
 			     msy = socket.getInputStream().read(b);
 			     if( msy >= 0)	
 				/*for(int j = 0; j<(b[5]+6) ; j++)
@@ -197,7 +197,8 @@ public class SocketClient extends AndroidNonvisibleComponent {
 				}*/
 				for(int j = 0; j<(b[5]+6) ; j++)
 				{
-				SC+ = str1[b[j]&0xff];
+					mm = b[j]&0xff;
+					SC+ = str1[mm];
 				}
 				message_2 = myHandler.obtainMessage();
 				message_2.obj = SC ;
