@@ -111,6 +111,7 @@ public class SocketClient extends AndroidNonvisibleComponent {
 	
     class MyThread extends Thread {
  
+	public String SC;
         public String IP;
         public int DK;  
         public int js;
@@ -187,12 +188,19 @@ public class SocketClient extends AndroidNonvisibleComponent {
 			     int msy = 0;  byte[] b = new byte[255];	int k = 0;
 			     msy = socket.getInputStream().read(b);
 			     if( msy >= 0)	
-				for(int j = 0; j<(b[5]+6) ; j++)
+				/*for(int j = 0; j<(b[5]+6) ; j++)
 				{
 					message_2 = myHandler.obtainMessage();
 					message_2.obj = b[j]&0xff;
 					myHandler.sendMessage(message_2);
+				}*/
+				for(int j = 0; j<(b[5]+6) ; j++)
+				{
+				//b[j]&0xff	
 				}
+				message_2 = myHandler.obtainMessage();
+				message_2.obj = SC ;
+				myHandler.sendMessage(message_2);
 			   
 				
 			     }catch (IOException e) {
